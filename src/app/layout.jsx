@@ -1,9 +1,9 @@
 import Footer from './components/Footer/Footer'
 import Navbar from './components/Navbar/Navbar'
 import './globals.css'
-import { Inter } from 'next/font/google'
+import { Noto_Kufi_Arabic } from 'next/font/google'
 
-const inter = Inter({ subsets: ['latin'] })
+const NotoKufiArabic = Noto_Kufi_Arabic({ subsets: ['arabic'] })
 
 export const metadata = {
   title: 'Watin Plus | وتين بلس',
@@ -13,7 +13,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html dir='rtl'>
-      <body className={inter.className}>
+      <body className={NotoKufiArabic.className}>
         <Navbar />
         {children}
         <Footer />

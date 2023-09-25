@@ -3,16 +3,31 @@ import Logo from "../Logo/Logo";
 import Link from "next/link";
 import { Links } from "./dataRoute";
 import "./navbar.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const Navbar = () => {
   const [checked, setChecked] = useState(false);
+  const [navbarColor, setNavbarColor] = useState(false);
+
+  useEffect(() => {
+    const changeColor = () => {
+      if (window.scrollY >= 80) {
+        setNavbarColor(true);
+      } else {
+        setNavbarColor(false);
+      }
+      window.addEventListener("scroll", changeColor, true);
+    };
+    return window.removeEventListener("scroll", changeColor);
+  }, [navbarColor]);
+
+
   const handleChange = () => {
     setChecked(!checked);
   };
 
   return (
-    <nav className="px-2.5 py-3 md:py-6 mb-10 max-w-screen-2xl mx-auto border-b-4 border-gray-100">
+    <nav className={`px-2.5 py-3 md:py-6 mb-10 sticky top-0 ${!navbarColor ? 'bg-transparent' : 'bg-main/10 backdrop-blur-sm'}`}>
       <div class="container mx-auto flex justify-between items-center">
         <Link href="/" class="flex items-center">
           <Logo width={160} height={160} />
@@ -20,7 +35,9 @@ const Navbar = () => {
 
         <div className="hidden lg:flex gap-10">
           {Links.map((link) => (
-            <Link href={link.path} key={link.id}
+            <Link
+              href={link.path}
+              key={link.id}
               className="text-gray-500 hover:text-secondary font-medium"
             >
               {link.title}
@@ -30,7 +47,7 @@ const Navbar = () => {
 
         <div className="flex items-center gap-4">
           <Link
-            href='/'
+            href="/login"
             className="text-white font-medium text-sm md:text-base py-2 px-2 md:px-8 rounded-full bg-main hover:bg-secondary shadow-xl shadow-main/50 hover:shadow-secondary/50 transition"
           >
             <span className="hidden md:block">تسجيل الدخول</span>
@@ -51,8 +68,7 @@ const Navbar = () => {
           </Link>
 
           <label className="group hamburger cursor-pointer">
-            <p>{checked ? "checked" : "unchecked"}</p>
-            <h1>1234</h1>
+            {/* <p>{checked ? "checked" : "unchecked"}</p> */}
             <input
               type="checkbox"
               className="hidden"
