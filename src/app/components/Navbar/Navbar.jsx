@@ -1,9 +1,9 @@
 "use client";
+import { useEffect, useState } from "react";
 import Logo from "../Logo/Logo";
 import Link from "next/link";
 import { Links } from "./dataRoute";
 import "./navbar.css";
-import { useEffect, useState } from "react";
 
 const Navbar = () => {
   const [checked, setChecked] = useState(false);
@@ -16,10 +16,10 @@ const Navbar = () => {
       } else {
         setNavbarColor(false);
       }
-      window.addEventListener("scroll", changeColor, true);
     };
+    window.addEventListener("scroll", changeColor, true);
     return window.removeEventListener("scroll", changeColor);
-  }, [navbarColor]);
+  }, []);
 
 
   const handleChange = () => {
@@ -27,9 +27,9 @@ const Navbar = () => {
   };
 
   return (
-    <nav className={`px-2.5 py-3 md:py-6 mb-10 sticky top-0 ${!navbarColor ? 'bg-transparent' : 'bg-main/10 backdrop-blur-sm'}`}>
-      <div class="container mx-auto flex justify-between items-center">
-        <Link href="/" class="flex items-center">
+    <nav className={`px-2.5 py-3 md:py-6 mb-10 sticky top-0 transition-all ${navbarColor ? 'bg-transparent' : 'bg-main/10 backdrop-blur-sm'}`}>
+      <div className="container mx-auto flex justify-between items-center">
+        <Link href="/" className="flex items-center">
           <Logo width={160} height={160} />
         </Link>
 
