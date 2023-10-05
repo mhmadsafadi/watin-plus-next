@@ -2,6 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
-body{
-    height: 4000px;
+body {
+  height: 4000px;
+}
+
+@layer components {
+  .padding {
+    @apply px-2.5 sm:px-0;
+  }
+}
+@layer utilities {
+  .animation-delay-1000 {animation-delay: 1s}
+  .animation-delay-2000 {animation-delay: 2s}
+  .animation-delay-3000 {animation-delay: 3s}
 }

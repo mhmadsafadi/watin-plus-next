@@ -7,8 +7,20 @@ module.exports = {
   ],
   theme: {
     extend: {
+      container: {
+        center: true,
+      },
       animation: {
         'spin-slow': 'spin 1s linear infinite',
+        blob: 'blob 5s infinite alternate'
+      },
+      keyframes:{
+        blob:{
+          '0%':{transform: 'translate(0px, 0px) scale(1)'},
+          '33%':{transform: 'translate(20px, -50px) scale(1.2)'},
+          '66%':{transform: 'translate(-20px, 50px) scale(0.9)'},
+          '100%':{transform: 'translate(0px, 0px) scale(1)'},
+        }
       },
       colors: {
         main: '#017EB6',

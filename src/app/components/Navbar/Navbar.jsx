@@ -27,20 +27,20 @@ const Navbar = () => {
   };
 
   return (
-    <nav className={`px-2.5 py-3 md:py-6 mb-10 sticky top-0 transition-all ${navbarColor ? 'bg-transparent' : 'bg-main/10 backdrop-blur-sm'}`}>
+    <nav className={`padding py-3 md:py-6 mb-4 sticky top-0 z-30 transition-colors delay-100 ${navbarColor ? 'bg-main/10 backdrop-blur-sm' : 'bg-transparent'}`}>
       <div className="container mx-auto flex justify-between items-center">
         <Link href="/" className="flex items-center">
-          <Logo width={160} height={160} />
+          <Logo width={170} height={50} />
         </Link>
 
         <div className="hidden lg:flex gap-10">
           {Links.map((link) => (
             <Link
-              href={link.path}
               key={link.id}
+              href={link.path}
               className="text-gray-500 hover:text-secondary font-medium"
             >
-              {link.title}
+              {link.label}
             </Link>
           ))}
         </div>
@@ -67,7 +67,7 @@ const Navbar = () => {
             </svg>
           </Link>
 
-          <label className="group hamburger cursor-pointer">
+          <label className="group hamburger cursor-pointer lg:hidden">
             {/* <p>{checked ? "checked" : "unchecked"}</p> */}
             <input
               type="checkbox"

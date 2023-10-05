@@ -1,27 +1,27 @@
 export const Links = [
     {
         id: 1,
-        title: 'من نحن',
+        label: 'من نحن',
         path: '/about'
     },
     {
         id: 2,
-        title: 'من نصائح وتين',
+        label: 'من نصائح وتين',
         path: '/advice'
     },
     {
         id: 3,
-        title: 'مدونة وتين',
+        label: 'مدونة وتين',
         path: '/blog'
     },
     {
         id: 4,
-        title: 'شركاء النجاح',
+        label: 'شركاء النجاح',
         path: '/succ'
     },
     {
         id: 5,
-        title: 'آراء العملاء',
+        label: 'آراء العملاء',
         path: '/testemonial'
     },
 ]
